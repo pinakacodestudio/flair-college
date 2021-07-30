@@ -1,0 +1,3 @@
+ALTER TABLE `student_admissions` ADD `signed_loa_filename` MEDIUMTEXT NULL DEFAULT NULL AFTER `other_information`;
+
+ALTER TABLE `student_admissions` ADD `status` TINYINT NOT NULL DEFAULT '0' AFTER `signed_loa_filename`;

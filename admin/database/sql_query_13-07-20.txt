@@ -1,0 +1,15 @@
+
+ALTER TABLE `programs` ADD `type_of_program_other` VARCHAR(100) NULL DEFAULT NULL AFTER `type_of_program`;
+
+ALTER TABLE `programs` CHANGE `level_of_study` `level_of_study` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `programs` CHANGE `type_of_program` `type_of_program` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `academic_status` `academic_status` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `hours_per_week` `hours_per_week` VARCHAR(10) NULL DEFAULT NULL, CHANGE `program_duration_weeks` `program_duration_weeks` VARCHAR(10) NULL DEFAULT NULL, CHANGE `program_duration_years` `program_duration_years` VARCHAR(10) NULL DEFAULT NULL;
+
+
+ALTER TABLE `students_applications` ADD `passport_number` VARCHAR(30) NULL DEFAULT NULL AFTER `email`, ADD `country_of_citizenship` VARCHAR(50) NULL DEFAULT NULL AFTER `passport_number`;
+ALTER TABLE `students_applications` ADD `application_id` VARCHAR(10) NULL DEFAULT NULL AFTER `id`;
+
+ALTER TABLE `users` ADD `invitation_token` VARCHAR(100) NULL DEFAULT NULL AFTER `remember_token`;
+ALTER TABLE `users` ADD `email_verified` TINYINT(1) NOT NULL DEFAULT '0' AFTER `invitation_token`;
+
+ALTER TABLE `programs` ADD `intake_ids` TEXT NULL DEFAULT NULL AFTER `total_fees`;
