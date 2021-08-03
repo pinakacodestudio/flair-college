@@ -22,9 +22,9 @@
                 <div class="dropdown-menu dropdown-menu-header wd-200">
                     <ul class="list-unstyled user-profile-nav">
                         <li><a href="{!! route('profile') !!}"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
-                        <li><a href="{!! route('settings') !!}"><i class="icon ion-ios-gear"></i> Collage Settings</a></li>
-                        <li><a href="{!! route('campus') !!}"><i class="icon ion-ios-gear"></i> Collage Campus</a></li>
-                        <li><a href="{!! route('staffs') !!}"><i class="icon ion-person-stalker"></i> Collage Staff</a></li>
+                        <li><a href="{!! route('settings') !!}"><i class="icon ion-ios-gear"></i> College Settings</a></li>
+                        <li><a href="{!! route('campus') !!}"><i class="icon ion-ios-gear"></i> College Campus</a></li>
+                        <li><a href="{!! route('staffs') !!}"><i class="icon ion-person-stalker"></i> College Staff</a></li>
                         <li>
                             <a href="javascript:;"
                                onclick="event.preventDefault();document.getElementById('logout-form')s.submit();"><i class="icon ion-power"></i> Sign Out</a>

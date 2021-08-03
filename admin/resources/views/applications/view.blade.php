@@ -71,7 +71,7 @@
                                        placeholder="Enter first name">
                             </div>
                         </div><!-- col-4 -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-4" style="display:none;">
                             <div class="form-group">
                                 <label class="form-control-label">Middle Name: <span
                                             class="tx-danger">*</span></label>
@@ -81,9 +81,7 @@
                             </div>
                         </div><!-- col-4 -->
 
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
+						<div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-control-label">Email address: <span
                                             class="tx-danger">*</span></label>
@@ -92,6 +90,9 @@
                                        placeholder="Enter email address">
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        
                         <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Country of Citizenship: <span
@@ -110,10 +111,7 @@
                                        placeholder="Enter passport number">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-4">
+						<div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-control-label">Gender: <span
                                             class="tx-danger">*</span></label>
@@ -132,11 +130,15 @@
                                 </select>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="row">
+                        
                         <div class="col-lg-4">
                             <div class="form-group mg-b-10-force">
                                 <label class="form-control-label">Date of Birth: <span
                                             class="tx-danger">*</span></label>
-                                <input class="form-control fc-datepicker" type="text" name="dob"
+                                <input class="form-control " type="date" name="dob"
                                        value="{!! $students_application->dob ? $students_application->dob->format('Y-m-d') :'' !!}"
                                        placeholder="Select date of birth">
                             </div>
@@ -307,7 +309,7 @@
                         <div class="col-lg-8">
                             <div class="form-group">
                                 <label class="form-control-label">If NO, Have you taken any English Tests (i.e.,
-                                    IELTS, TOEFL, CAEL)</label>
+                                    IELTS, TOEFL, PTE-A)</label>
                                 <div>
                                     <label class="rdiobox rdiobox-inline">
                                         <input name="is_english_test_given" class="is_english_test_given"

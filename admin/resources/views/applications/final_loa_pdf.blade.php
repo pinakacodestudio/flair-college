@@ -7,7 +7,9 @@
 		.watermark{
 			position:absolute;
 			top:45%;
-			left:36%;
+			left:38%;
+			width:25%;
+			opacity: 0.5;
 			
 		}
         .clearfix:after {
@@ -234,13 +236,13 @@
 				</td>
 				<td>
 					<div class="key">Given Name</div>
-					<div>{!! $students_application->last_name !!}</div>
+					<div>{!! $students_application->first_name !!}</div>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<div class="key">Date of Birth</div>
-					<div>{!! $students_application->dob ? $students_application->dob->format('Y/m/d') :'' !!}</div>
+					<div>{!! $students_application->dob ? $students_application->dob->format('d-m-Y') :'' !!}</div>
 				</td>
 				<td>
 					<div class="key">Student ID Number</div>
@@ -249,7 +251,7 @@
 			</tr>
 			<tr>
 				<td>
-					<div class="key">Student's full mailing Address</div>
+					<div class="key">Student's full Mailing Address</div>
 					<div>{!! $students_application->home_address !!}<br/>
 						{!! $students_application->home_country !!}</div>
 				</td>
@@ -269,17 +271,17 @@
 			<tbody>
 			<tr>
 				<td>
-					<div class="key">Full Name of institution</div>
+					<div class="key">Full Name of Institution</div>
 					<div>{!! $college->name !!}</div>
 				</td>
 				<td>
-					<div class="key">Designated learning institution number</div>
+					<div class="key">Designated Learning Institution Number</div>
 					<div>{!! $college->dli_number !!}</div>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<div class="key">Address of institution{{--{!! $college->address !!}--}}</div>
+					<div class="key">Address of Institution{{--{!! $college->address !!}--}}</div>
 				</td>
 			</tr>
 
@@ -291,7 +293,7 @@
 							<div>{!! $college->po_box !!}</div>
 						</div>
 						<div class="float_left">
-							<div class="key">Street no.</div>
+							<div class="key">Street No.</div>
 							<div>{!! $college->street_no !!}</div>
 						</div>
 					</div>
@@ -312,7 +314,7 @@
 							<div>{!! $college->po_box !!}</div>
 						</div>
 						<div class="float_left">
-							<div class="key">Street no.</div>
+							<div class="key">Street No.</div>
 							<div>{!! $college->street_no !!}</div>
 						</div>
 					</div>
@@ -363,7 +365,7 @@
 					</div>
 					<div class="float_left">
 						<div class="key">Type of School/Institution</div>
-						<div>{!! $college->institution_type !!}</div>
+						<div>{!! ucwords($college->institution_type) !!}</div>
 					</div>
 
 				</td>
@@ -498,22 +500,22 @@
 						<div class="width_30_p float_left text-right" style="margin-right: 3px;margin-top: 0;"><strong>Start
 								Date:</strong></div>
 						@if($student_admission->start_at)
-							{!! $student_admission->start_at->format('Y/m/d') !!}
+							{!! $student_admission->start_at->format('d-m-Y') !!}
 						@endif
 					</div>
 					<div>
 						<div class="width_30_p float_left text-right" style="margin-right: 3px;margin-top: 0;"><strong>Completion
 								Date:</strong></div>
 						@if($student_admission->completion_at)
-							{!! $student_admission->completion_at->format('Y/m/d') !!}
+							{!! $student_admission->completion_at->format('d-m-Y') !!}
 						@endif
 					</div>
 				</td>
 				<td>
-					<div class="key">Expiration of latter of acceptance</div>
+					<div class="key">Expiration of Letter of Acceptance</div>
 					<div>
 						@if($student_admission->expiration_at)
-							{!! $student_admission->expiration_at->format('Y/m/d') !!}
+							{!! $student_admission->expiration_at->format('d-m-Y') !!}
 						@endif
 					</div>
 				</td>
@@ -529,7 +531,7 @@
 		<div>
 			<div class="clearfix" style="padding-top: 15px;">
 				<div class="width_50_p float_left text-right">
-					<strong>Signature of institutions representative: </strong>
+					<strong>Signature of Institutions Representative: </strong>
 				</div>
 				<div class="width_40_p float_left"
 					 style="border-bottom: 1px solid;min-height: 15px;margin-left: 5px;">&nbsp;
@@ -540,7 +542,7 @@
 			</div>
 			<div class="clearfix" style="padding-top: 10px;">
 				<div class="width_50_p float_left text-right">
-					<strong>Printed name of institutions representative: </strong>
+					<strong>Printed name of Institutions Representative: </strong>
 				</div>
 				<div class="width_40_p float_left"
 					 style="border-bottom: 1px solid;min-height: 15px;margin-left: 5px;">
