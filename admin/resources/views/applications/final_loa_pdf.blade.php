@@ -9,9 +9,18 @@
 			top:45%;
 			left:38%;
 			width:25%;
-			opacity: 0.5;
+			opacity: 0.3;
 			
 		}
+		#watermark {
+   position:fixed;
+   bottom:5px;
+   right:5px;
+   opacity:0.5;
+   z-index:99;
+   color:white;
+   user-select: none;
+}
         .clearfix:after {
             visibility: hidden;
             display: block;
@@ -39,10 +48,9 @@
             height: 26cm;
             margin: 0 auto;
             color: black;
-            background: #FFFFFF;
             font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
             font-size: 12px;
-
+			
             line-height: 1.5;
             font-weight: 500;
         }
@@ -85,7 +93,7 @@
 
 
         table th {
-            padding: 5px 5px;
+            padding: 4px 4px;
             color: #5D6975;
             border-bottom: 1px solid #C1CED9;
             white-space: nowrap;
@@ -93,7 +101,7 @@
         }
 
         table td {
-            padding: 0px 5px;
+            padding: 0px 4px;
             border: 1px solid #000;
             /*font-weight: bold;*/
         }
@@ -106,7 +114,7 @@
 
         table.letter_detail td .key {
             font-weight: 700;
-            line-height: 16px;
+            line-height: 14px;
         }
 
         table.letter_detail td div {
@@ -200,6 +208,7 @@
             font-weight: 600;
             border: 1px solid #004080;
         }
+	
 
         @media print {
             .non-printable {
@@ -214,10 +223,10 @@
 	<div id="printable">
 		<div class="clearfix">
 			<div id="logo">
-				<img src="{!! asset('assets/img/logo-wide-1.png') !!}" alt="LOGO">
+				<img src="{!! asset('assets/img/logo-wide-1.png') !!}" alt="LOGO" >
 			</div>
 			<div class="address">
-				<div>{!! $college->address !!}</div>
+				<div>{!! $college_campus->address !!},<br>{!! $college_campus->city !!} - {!! $college_campus->postcode !!}</div>
 				<div><strong>Phone:</strong> {!! $college->phone !!}</div>
 				<div><strong>Email:</strong> {!! $college->email !!}</div>
 			</div>
@@ -384,19 +393,39 @@
 				<td colspan="2">
 					<div class="width_30_p float_left border_right">
 						<div class="key">Name of contact</div>
-						<div>{!! $staff1?$staff1->full_name:'' !!}</div>
+						<div>{!! $campusstaff1?$campusstaff1->first_name:'' !!}</div>
 					</div>
 					<div class="width_30_p float_left border_right">
 						<div class="key">Position</div>
-						<div>{!! ($staff1?($staff_position[$staff1->position]):'') !!}</div>
+						<div>{!! $campusstaff1?$campusstaff1->position:'' !!}</div>
 					</div>
 					<div class="width_30_p float_left border_right">
 						<div class="key">Telephone number</div>
-						<div>{!! $staff1?$staff1->mobile:'' !!}</div>
+						<div>{!! $campusstaff1?$campusstaff1->mobile:'' !!}</div>
 					</div>
 					<div class="width_10_p float_left">
 						<div class="key">Extension</div>
-						<div>{!! $staff1?$staff1->extension:'' !!}</div>
+						<div>{!! $campusstaff1?$campusstaff1->extension:'' !!}</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div class="width_30_p float_left border_right">
+						<div class="key">Name of alternate contact</div>
+						<div>{!! $campusstaff2?$campusstaff2->first_name:'' !!}</div>
+					</div>
+					<div class="width_30_p float_left border_right">
+						<div class="key">Position</div>
+						<div>{!! $campusstaff2?$campusstaff2->position:'' !!}</div>
+					</div>
+					<div class="width_30_p float_left border_right">
+						<div class="key">Telephone number</div>
+						<div>{!! $campusstaff2?$campusstaff2->mobile:'' !!}</div>
+					</div>
+					<div class="width_10_p float_left">
+						<div class="key">Extension</div>
+						<div>{!! $campusstaff2?$campusstaff2->extension:'' !!}</div>
 					</div>
 				</td>
 			</tr>
@@ -554,7 +583,7 @@
 				</div>
 			</div>
 		</div>
-		<img src="{!! asset('assets/img/watermark_logo.png') !!}" alt="LOGO" class="watermark">       
+		<img src="{!! asset('assets/img/watermark_logo.png') !!}" alt="LOGO" class="watermark">   
 	</div>
 </main>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -52,7 +52,24 @@
                             </select>
                         </div>
                     </div>
-
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Select campus Alternet contact person: <span
+                                        class="tx-danger">*</span></label>
+                            <select class="form-control select2__" name="altstaff_id" id="altstaff_id"
+                                    data-placeholder="Choose campus Alternet contact person">
+                                @foreach($college_staffs as $college_staff)
+                                    <option value="{!! $college_staff->id !!}"
+                                            {!! old('altstaff_id')==$college_staff->id?'selected="selected"':'' !!}>
+                                        {!! $college_staff->full_name !!}
+                                        @if(isset($staff_position[$college_staff->position]))
+                                            {!! '('.$staff_position[$college_staff->position].')' !!}
+                                        @endif
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label class="form-control-label">Campus Address: <span class="tx-danger">*</span></label>

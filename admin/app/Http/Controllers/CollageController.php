@@ -271,6 +271,7 @@ class CollageController extends Controller
         $college_campus_date = [
             'college_id' => $college_id,
             'staff_id'   => $request->input('staff_id'),
+            'altstaff_id'=>$request->input('altstaff_id'),
             'name'       => $request->input('name'),
             'address'    => $request->input('address'),
             'city'       => $request->input('city'),
@@ -321,12 +322,12 @@ class CollageController extends Controller
 
             $college_campus_date = [
                 'staff_id' => $request->input('staff_id'),
+                'altstaff_id'=>$request->input('altstaff_id'),
                 'name'     => $request->input('name'),
                 'address'  => $request->input('address'),
                 'city'     => $request->input('city'),
                 'postcode' => $request->input('postcode'),
                 'phone'    => $request->input('phone'),
-
                 'status' => ($request->has('status') ? 1 : 0),
             ];
 

@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 
 use Auth;
 use Validator;
-use PDF;
+use Barryvdh\DomPDF\PDF;
 
 class StudentApplicationController extends Controller
 {
@@ -553,8 +553,12 @@ class StudentApplicationController extends Controller
 
                 /* new 27-02-21 */
                 $college_campus = CollegeCampus::find($student_admission->college_campus_id);
-                if ($college_campus && $college_campus->staff) {
-                    $staff1 = $college_campus->staff;
+                if ($college_campus && $college_campus->staff_id) {
+                    $campusstaff1 = CollegeStaff::find($college_campus->staff_id);
+                    
+                }
+                if($college_campus && $college_campus->altstaff_id) {
+                    $campusstaff2 = CollegeStaff::find($college_campus->altstaff_id);
                 }
 
                 $college = College::where('id', $college_id)->first();
@@ -562,7 +566,7 @@ class StudentApplicationController extends Controller
                 $download = $request->input('download', 1);
 
                 if ($download) {
-                    $pdf = PDF::loadView('applications.final_loa_pdf', compact('student_admission', 'college', 'students_application', 'program', 'auth_user', 'staff_position', 'staff1', 'staff2', 'college_campus'));
+                    $pdf = PDF::loadView('applications.final_loa_pdf', compact('student_admission', 'college', 'students_application', 'program', 'auth_user', 'staff_position', 'staff1', 'staff2', 'college_campus','campusstaff1','campusstaff2'));
 
                     //return $pdf->stream("dompdf_out.pdf", array("Attachment" => false));
 
